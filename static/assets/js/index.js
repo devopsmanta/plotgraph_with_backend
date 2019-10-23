@@ -1,12 +1,24 @@
-var datasets
+var datasets = []
+const SuperfishelStone10 = ['#6388b4', '#ffae34', '#ef6f6a', '#8cc2ca', '#55ad89', '#c3bc3f', '#bb7693', '#baa094', '#a9b5ae', '#767676']
+
 $(window).on('load', function () {
     $('.sidenav').sidenav();
     generateMultiGraph = () => {
 	var xlow = document.getElementById("xlow").value;
         var xhigh = document.getElementById("xhigh").value;
         var newtext = document.getElementById("math").value;
-        document.getElementById("output").value = newtext;
-        myxml = newtext
+        var mathML = org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("math").getMathML();
+        const wrapper = document.createElement('div')
+        wrapper.setAttribute('class', 'formula_wrapper')
+        const colorNode = document.createElement('div')
+        colorNode.setAttribute('style', 'background: ' + SuperfishelStone10[datasets.length % 10])
+        colorNode.setAttribute('class', 'formula_color')
+        const mathMLNode = document.createElement('span')
+        mathMLNode.innerHTML = '(' + mathML + ')\''
+        wrapper.appendChild(colorNode)
+        wrapper.appendChild(mathMLNode)
+        document.getElementById("formula_list").appendChild(wrapper)
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathMLNode]);
         sample_datapoints = []
         $.ajax({
             url: "http://localhost:3000/postDerive",
@@ -15,15 +27,13 @@ $(window).on('load', function () {
             type: "POST",
             'data': JSON.stringify(newtext+"xlow"+xlow+"xhigh"+xhigh),
             success: function (data) {
-                datasets = [{
+                datasets.push({
                     label: 'f`(x)',
                     fill: false,
-                    backgroundColor: 'rgb(213, 110, 255)',
-                    borderColor: 'rgb(133, 39, 171)',
                     borderWidth: 1,
                     data: data,
                     radius: 0,
-                }]
+                })
                 runchartjs(datasets)
                 $('#graph_shell').slideDown();
                 window.scrollTo({
@@ -33,13 +43,22 @@ $(window).on('load', function () {
             }
         });
     }
-
     generateGraph = () => {
-	var xlow = document.getElementById("xlow").value;
-	var xhigh = document.getElementById("xhigh").value;
+        var xlow = document.getElementById("xlow").value;
+        var xhigh = document.getElementById("xhigh").value;
         var newtext = document.getElementById("math").value;
-        document.getElementById("output").value = newtext;
-        myxml = newtext
+        var mathML = org.mathdox.formulaeditor.FormulaEditor.getEditorByTextArea("math").getMathML();
+        const wrapper = document.createElement('div')
+        wrapper.setAttribute('class', 'formula_wrapper')
+        const colorNode = document.createElement('div')
+        colorNode.setAttribute('style', 'background: ' + SuperfishelStone10[datasets.length % 10])
+        colorNode.setAttribute('class', 'formula_color')
+        const mathMLNode = document.createElement('span')
+        mathMLNode.innerHTML = mathML
+        wrapper.appendChild(colorNode)
+        wrapper.appendChild(mathMLNode)
+        document.getElementById("formula_list").appendChild(wrapper)
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathMLNode]);
         sample_datapoints = []
         $.ajax({
             url: "http://localhost:3000/postXML",
@@ -48,15 +67,15 @@ $(window).on('load', function () {
             type: "POST",
             'data': JSON.stringify(newtext+"xlow"+xlow+"xhigh"+xhigh),
             success: function (data) {
-                datasets = [{
+                console.log('before', datasets)
+                datasets.push({
                     label: 'f(x)',
                     fill: false,
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                    borderColor: 'rgba(255,99,132,1)',
                     borderWidth: 1,
                     data: data,
                     pointRadius: 0,
-                }]
+                })
+                console.log(datasets)
                 runchartjs(datasets)
                 $('#graph_shell').slideDown();
                 window.scrollTo({
@@ -68,7 +87,6 @@ $(window).on('load', function () {
     }
     generate3Dgraph = () => {
         var newtext = document.getElementById("math").value;
-        document.getElementById("output").value = newtext;
         document.getElementById('graph_3Dshell').innerHTML = '<img src="static/3Dgraph.png">';
         $('#graph_3Dshell').slideDown();
         window.scrollTo({
@@ -96,6 +114,9 @@ $(window).on('load', function () {
             },
             options: {
                 responsive: true,
+                legend: {
+                    display: false,
+                },
                 scales: {
                     xAxes: [{
                         ticks: {
@@ -122,8 +143,22 @@ $(window).on('load', function () {
                             labelString: 'Y-Axis'
                         }
                     }]
+                },
+                plugins: {
+                    colorschemes: {
+                        scheme: 'tableau.SuperfishelStone10',
+                    }
                 }
             }
         });
     }
+    clearChatjs = () => {
+        datasets.splice(0, datasets.length)
+        const formulaListNode = document.getElementById('formula_list')
+        while (formulaListNode.hasChildNodes()) {
+            formulaListNode.removeChild(formulaListNode.firstChild)
+        }
+        runchartjs(datasets)
+    }
+    document.getElementById('clear_2Dgraph').addEventListener("click", clearChatjs);
 });

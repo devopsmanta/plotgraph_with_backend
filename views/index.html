@@ -8,11 +8,22 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+    
     <link href="{{ url_for('static', filename='assets/css/mathdox.css') }}" rel="stylesheet" type="text/css">
     <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet" type="text/css">
     <script>
         var plot3d = 'no';
     </script>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js"> 
+        MathJax.Hub.Config({ 
+          extensions: ["mml2jax.js"], 
+          jax: ["input/MathML", "output/HTML-CSS"] 
+        }); 
+    </script> 
     <script data-ad-client="ca-pub-4559838995070559" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
@@ -88,7 +99,6 @@
                 </div>
                </div>
             </form>
-            <textarea id="output" name="output">x</textarea>
             <a id="formulae_submit_btn" class="waves-effect waves-light btn teal accent-4 col s4"
                 href='javascript:generateGraph()'>Submit</a>
             <a id="dfx_submit_btn" class="waves-effect waves-light btn teal accent-4"
@@ -96,6 +106,11 @@
         </div>
         <div class="generated_graph" id="graph_shell">
             <canvas id="newGraph"></canvas>
+            <div id="formula_list" class="formula_list">
+            </div>
+            <div class="btn" id="clear_2Dgraph">
+                Clear
+            </div>
             <div class="btn" id="download_2Dgraph">
                 Download ▼
             </div>
@@ -532,6 +547,7 @@
         src="https://www.plotgraphs.com/static/assets/js/formulaeditor/org/mathdox/formulaeditor/main.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.2.61/jspdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-colorschemes"></script>
     <script src="{{ url_for('static', filename='assets/js/index.js') }}"></script>
 </body>
 

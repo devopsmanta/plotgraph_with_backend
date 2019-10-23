@@ -53,6 +53,29 @@ textarea#output{
 	align-items: center;
 }
 
+.formula_color {
+	width: 45px;
+	height: 15px;
+	border: solid 1px #ccc;
+	opacity: 0.6;
+	margin-left:8px;
+	margin-right: 4px;
+}
+
+.formula_list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-content: center;
+	margin-top: 10px;
+}
+
+.formula_wrapper {
+	display: flex;
+	margin: 8px;
+	align-items: center;
+}
+
 @media only screen and (max-width: 600px) {
 	.editor_div{
 		padding: 20px;

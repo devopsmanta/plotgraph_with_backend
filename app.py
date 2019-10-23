@@ -18,6 +18,7 @@ import uuid
 import subprocess
 from flask_googletrans import translator
 from flask_cors import CORS
+from random import randint
 
 
 #from functions import *
@@ -43,18 +44,20 @@ def postXML():
     print(xlow)
     print("xhigh",xhigh)
 
+    rand = randint(-10, -1)
+
     my_json =[{
             'x': xlow,
             'y': xlow
         }, {
-            'x': -5,
-            'y': 1.2
+            'x': rand,
+            'y': randint(-25, 25),
         }, {
-            'x': 3,
-            'y': -1.2
+            'x': -rand,
+            'y': randint(-25, 25),
         }, {
             'x': xhigh,
-            'y': xhigh
+                'y': xhigh
         }]
     print(my_json)
     #print("JSON",json.dumps(dict_object))
@@ -64,6 +67,59 @@ def postXML():
 @app.route('/postDerive', methods=['POST','GET'])
 def postDerive():
 
+    # cur_str = str(request.json)
+    # data = cur_str.split('xlow')
+    # print(data)
+    # xml = data[0]
+    # data2 = data[1].split("xhigh")
+    # xlow=data2[0]
+    # xhigh = data2[1]
+    # #xhigh = int(data[1].replace('xhigh', '').strip())
+    # print(xml)
+    # print(xlow)
+    # print("xhigh",xhigh)
+
+    # unique_filename = str(uuid.uuid4())
+    
+    # # Write-Overwrites 
+    # file1 = open("/tmp/"+unique_filename,"w")#write mode
+    # file1.write(xml)
+    # file1.close()
+
+    # #p1 = subprocess.Popen(('someprog.exe', str(i))
+    # #p2.wait()
+	
+    # os.system("/root/test/plot-graphs/charts/pg-cli "+"/tmp/"+unique_filename+" derive")
+    # os.system("python functions.py "+"/tmp/"+unique_filename+".txt "+str(xlow)+" "+str(xhigh)) 
+    # #print(evaluate('cos(x)+(e^(x)/ln(x))', 1, 10, 1))
+   
+    # fn="/tmp/"+unique_filename+".txt.json"
+    # file2 = open(fn,"r")#write mode
+    # print("File2: "+fn)
+    # #contents =file2.read()
+    # #contents=contents.strip()
+    # #print(contents)
+    # #d = json.loads(contents)
+    # # Load JSON file data to a python dict object.
+    # dict_object = json.load(file2)
+    # print("Dict object",dict_object)
+    # my_json =[{
+    #         'x': xlow,
+    #         'y': xlow
+    #     }, {
+    #         'x': -1,
+    #         'y': -1
+    #     }, {
+    #         'x': 1,
+    #         'y': 1
+    #     }, {
+    #         'x': xhigh,
+    #         'y': xhigh
+    #     }]
+    # print(request.json)
+    # #print("JSON",json.dumps(dict_object))
+    # #print("JSON dummy",json.dumps(my_json))
+    # return dict_object #sending my dummy data
     cur_str = str(request.json)
     data = cur_str.split('xlow')
     print(data)
@@ -76,47 +132,25 @@ def postDerive():
     print(xlow)
     print("xhigh",xhigh)
 
-    unique_filename = str(uuid.uuid4())
-    
-    # Write-Overwrites 
-    file1 = open("/tmp/"+unique_filename,"w")#write mode
-    file1.write(xml)
-    file1.close()
+    rand = randint(-10, -1)
 
-    #p1 = subprocess.Popen(('someprog.exe', str(i))
-    #p2.wait()
-	
-    os.system("/root/test/plot-graphs/charts/pg-cli "+"/tmp/"+unique_filename+" derive")
-    os.system("python functions.py "+"/tmp/"+unique_filename+".txt "+str(xlow)+" "+str(xhigh)) 
-    #print(evaluate('cos(x)+(e^(x)/ln(x))', 1, 10, 1))
-   
-    fn="/tmp/"+unique_filename+".txt.json"
-    file2 = open(fn,"r")#write mode
-    print("File2: "+fn)
-    #contents =file2.read()
-    #contents=contents.strip()
-    #print(contents)
-    #d = json.loads(contents)
-    # Load JSON file data to a python dict object.
-    dict_object = json.load(file2)
-    print("Dict object",dict_object)
     my_json =[{
             'x': xlow,
             'y': xlow
         }, {
-            'x': -1,
-            'y': -1
+            'x': rand,
+            'y': randint(-25, 25),
         }, {
-            'x': 1,
-            'y': 1
+            'x': -rand,
+            'y': randint(-25, 25),
         }, {
             'x': xhigh,
             'y': xhigh
         }]
-    print(request.json)
+    print(my_json)
     #print("JSON",json.dumps(dict_object))
     #print("JSON dummy",json.dumps(my_json))
-    return dict_object #sending my dummy data
+    return json.dumps(my_json) #sending my dummy data
 
 
 @app.route('/')
