@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plotgraphs | Function Derivatives</title>
+    <base href="https://www.plotgraphs.com/">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"/>
+      <script data-ad-client="ca-pub-4559838995070559" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar-fixed">
+        <nav class="teal accent-4">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Plotgraphs</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+              ><i class="material-icons">menu</i></a
+            >
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/">2D Plots</a></li>
+              <li><a href="function-derivatives">Function Derivatives</a></li>
+              <li><a href="3d-plot">3D Plots</a></li>
+              <li><a href="faq">FAQs</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">2D Plots</a></li>
+        <li><a href="function-derivatives">Function Derivatives</a></li>
+        <li><a href="3d-plot">3D Plots</a></li>
+        <li><a href="faq">FAQs</a></li>
+      </ul>
+    </header>
+    <div class="container">
+      <div class="row">
+        <p>
+          {% if id == 'de' %}
+          {{ translate(text="You can use this tool also to calculate function derivatives. This short step-by-step guide will explain you how to do so. It contains:", src='en', dest=['de']) }}
+          {% elif id == 'es' %}
+          {{ translate(text="You can use this tool also to calculate function derivatives. This short step-by-step guide will explain you how to do so. It contains:", src='en', dest=['es']) }}
+          {% else %} You can use this tool also to calculate function
+          derivatives. This short step-by-step guide will explain you how to do
+          so. It contains: {%endif%}
+        </p>
+        <ul class="col offset-s1">
+          <li>
+            <a href="#q0" class="teal-text">
+              {% if id == 'de' %}
+              {{ translate(text="- A tutorial to use this tool to derive functions", src='en', dest=['de']) }}
+              {% elif id == 'es' %}
+              {{ translate(text="- A tutorial to use this tool to derive functions", src='en', dest=['es']) }}
+              {% else %} - A tutorial to use this tool to derive functions
+              {%endif%}
+            </a>
+          </li>
+          <li>
+            <a href="#q1" class="teal-text">
+              {% if id == 'de' %}
+              {{ translate(text="- An overview of the main features", src='en', dest=['de']) }}
+              {% elif id == 'es' %}
+              {{ translate(text="- An overview of the main features", src='en', dest=['es']) }}
+              {% else %}- An overview of the main features {%endif%}
+            </a>
+          </li>
+          <li>
+            <a href="#q2" class="teal-text">
+              {% if id == 'de' %}
+              {{ translate(text="- An introduction to the main differentiation rules", src='en', dest=['de']) }}
+              {% elif id == 'es' %}
+              {{ translate(text="- An introduction to the main differentiation rules", src='en', dest=['es']) }}
+              {% else %}- An introduction to the main differentiation
+              rules{%endif%}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="row">
+        <div id="q0">
+          <h4>
+            {% if id == 'de' %}
+            {{ translate(text="Tutorial to use this tool to derive functions", src='en', dest=['de']) }}
+            {% elif id == 'es' %}
+            {{ translate(text="Tutorial to use this tool to derive functions", src='en', dest=['es']) }}
+            {% else %} Tutorial to use this tool to derive functions {%endif%}
+          </h4>
+          <p class="col offset-m1">
+            {% if id == 'de' %}
+            {{ translate(text="To obtain the derivative of a function just go back to the main page and enter the function you want to derive clicking 'edit'. Our graphical formula editor will pop up to facilate you the input. When you have finished you the function you have entered will be drawn. Now you only have to click the button 'f'(x)' and the derivative will be calculated and also drawn into the same plot as the base function in another color. If you want to derive more than one function you can just click the "+" button and another input will show up.", src='en', dest=['de']) }}
+            {% elif id == 'es' %}
+            {{ translate(text="To obtain the derivative of a function just go back to the main page and enter the function you want to derive clicking 'edit'. Our graphical formula editor will pop up to facilate you the input. When you have finished you the function you have entered will be drawn. Now you only have to click the button 'f'(x)' and the derivative will be calculated and also drawn into the same plot as the base function in another color. If you want to derive more than one function you can just click the "+" button and another input will show up.", src='en', dest=['es']) }}
+            {% else %} To obtain the derivative of a function just go back to
+            the main page and enter the function you want to derive clicking
+            "edit". Our graphical formula editor will pop up to facilate you the
+            input. When you have finished you the function you have entered will
+            be drawn. Now you only have to click the button "f'(x)" and the
+            derivative will be calculated and also drawn into the same plot as
+            the base function in another color. If you want to derive more than
+            one function you can just click the "+" button and another input
+            will show up. {%endif%}
+          </p>
+          <p class="col offset-s1">
+            {% if id == 'de' %}
+            {{ translate(text="How can I calculate the second derivative of a function? If you want to calculate the second derivative of a function you have to calculate the first derivative as described above. Once you obtained the first derivative press "+" and enter the function you obtained as first derivative. The press 'f'(x)' again to obtain the second derivative. You can repeat this up to any order.", src='en', dest=['de']) }}
+            {% elif id == 'es' %}
+            {{ translate(text="How can I calculate the second derivative of a function? If you want to calculate the second derivative of a function you have to calculate the first derivative as described above. Once you obtained the first derivative press "+" and enter the function you obtained as first derivative. The press 'f'(x)' again to obtain the second derivative. You can repeat this up to any order.  ", src='en', dest=['es']) }}
+            {% else %}
+            <b>How can I calculate the second derivative of a function?</b> If
+            you want to calculate the second derivative of a function you have
+            to calculate the first derivative as described above. Once you
+            obtained the first derivative press "+" and enter the function you
+            obtained as first derivative. The press "f'(x)" again to obtain the
+            second derivative. You can repeat this up to any order. {%endif%}
+          </p>
+        </div>
+        <div id="q1" class="">
+          <h4>
+            {% if id == 'de' %}
+            {{ translate(text="Overview on the main features", src='en', dest=['de']) }}
+            {% elif id == 'es' %}
+            {{ translate(text="Overview on the main features", src='en', dest=['es']) }}
+            {% else %} Overview on the main features {%endif%}
+          </h4>
+          <div class="col offset-s1">
+            <ul>
+              <li>
+                {% if id == 'de' %}
+                {{ translate(text="Trigonometric functions: Derives all trigonometric functions and their inverse functions ", src='en', dest=['de']) }}
+                {% elif id == 'es' %}
+                {{ translate(text="Trigonometric functions: Derives all trigonometric functions and their inverse functions ", src='en', dest=['es']) }}
+                {% else %} <b>Trigonometric functions</b>: Derives all
+                trigonometric functions and their inverse functions {%endif%}
+              </li>
+              <li>
+                {% if id == 'de' %}
+                {{ translate(text="Hyperbolic functions: Also derives hyperbolic functions like Asinh(x) and their inverse functions", src='en', dest=['de']) }}
+                {% elif id == 'es' %}
+                {{ translate(text="Hyperbolic functions: Also derives hyperbolic functions like Asinh(x) and their inverse functions", src='en', dest=['es']) }}
+                {% else %}<b>Hyperbolic functions</b>: Also derives hyperbolic
+                functions like Asinh(x) and their inverse functions{%endif%}
+              </li>
+              <li>
+                {% if id == 'de' %}
+                {{ translate(text="Logarithmic functions: :Supports natural (ln(x)) and decadic (log(x)) logarithms (will be extended to general logarithms soon)", src='en', dest=['de']) }}
+                {% elif id == 'es' %}
+                {{ translate(text="Logarithmic functions: :Supports natural (ln(x)) and decadic (log(x)) logarithms (will be extended to general logarithms soon)", src='en', dest=['es']) }}
+                {% else %} <b>Logarithmic functions</b>: :Supports natural
+                (ln(x)) and decadic (log(x)) logarithms (will be extended to
+                general logarithms soon){%endif%}
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div id="q2">
+          <h4>
+            {% if id == 'de' %}
+            {{ translate(text="Introduction to the main differentiation rules", src='en', dest=['de']) }}
+            {% elif id == 'es' %}
+            {{ translate(text="Introduction to the main differentiation rules", src='en', dest=['es']) }}
+            {% else %}Introduction to the main differentiation rules {%endif%}
+          </h4>
+          <p class="col offset-s1">
+            {% if id == 'de' %}
+            {{ translate(text="Includes all the basic differentiation rules which are the product rule, the quotient rule and the chain rule. The product rule: The product rule says that the derivative of a product is the sum of the derivative of the first factor times the second factor and the derivative of the second factor times the first factor: The quotient rule: The quotient rule is a little more complicated. It says that the derivative of a quotient is a quotient again with the following characteristics: The dividend of this quotient is the difference of the divisor of the original quotient times the derivative of its dividend and the dividend of the original quotient times the derivative of the divisor. The divisor of the new quotient is the square of the divisor of the original quotient. Lets say you want to derive the following quotient: Then the derivative can be calculated like follows: The chain rule: The quotient rule applies if you have a composite function f(x) which consists of a outer function u(x) which has another function e.g. v(x) (inner function) as argument.The rule states that the derivative of a combined function is the derivative of the outer function times the derivative of the inner function. Lets consider the following combined function: The derivative of this combined function is: ", src='en', dest=['de']) }}
+            {% elif id == 'es' %}
+            {{ translate(text="Includes all the basic differentiation rules which are the product rule, the quotient rule and the chain rule. The product rule: The product rule says that the derivative of a product is the sum of the derivative of the first factor times the second factor and the derivative of the second factor times the first factor: The quotient rule: The quotient rule is a little more complicated. It says that the derivative of a quotient is a quotient again with the following characteristics: The dividend of this quotient is the difference of the divisor of the original quotient times the derivative of its dividend and the dividend of the original quotient times the derivative of the divisor. The divisor of the new quotient is the square of the divisor of the original quotient. Lets say you want to derive the following quotient: Then the derivative can be calculated like follows: The chain rule: The quotient rule applies if you have a composite function f(x) which consists of a outer function u(x) which has another function e.g. v(x) (inner function) as argument.The rule states that the derivative of a combined function is the derivative of the outer function times the derivative of the inner function. Lets consider the following combined function: The derivative of this combined function is: ", src='en', dest=['es']) }}
+            {% else %}Includes all the basic differentiation rules which are the
+            product rule, the quotient rule and the chain rule. The product
+            rule: The product rule says that the derivative of a product is the
+            sum of the derivative of the first factor times the second factor
+            and the derivative of the second factor times the first factor: The
+            quotient rule: The quotient rule is a little more complicated. It
+            says that the derivative of a quotient is a quotient again with the
+            following characteristics: The dividend of this quotient is the
+            difference of the divisor of the original quotient times the
+            derivative of its dividend and the dividend of the original quotient
+            times the derivative of the divisor. The divisor of the new quotient
+            is the square of the divisor of the original quotient. Lets say you
+            want to derive the following quotient: Then the derivative can be
+            calculated like follows: The chain rule: The quotient rule applies
+            if you have a composite function f(x) which consists of a outer
+            function u(x) which has another function e.g. v(x) (inner function)
+            as argument.The rule states that the derivative of a combined
+            function is the derivative of the outer function times the
+            derivative of the inner function. Lets consider the following
+            combined function: The derivative of this combined function is:
+            {%endif%}
+          </p>
+        </div>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>

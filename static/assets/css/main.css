@@ -1,0 +1,60 @@
+.ul{
+	list-style-type: circle !important
+}
+textarea#output{
+	display: none;
+}
+
+.fx_png{
+	display: inline;
+}
+
+.editor_div{
+	display: flex;
+    flex-direction: column;
+	align-items: center;
+	padding:5px;
+}
+#math_box_editor{
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.formula_field{
+	padding: 10px;
+}
+.formula_field canvas.mathdoxformula{
+	min-width: 25px;
+	min-height: 35px;
+	border: 1px solid #009688;
+}
+
+.formulaeditorpalette{
+	border:2px solid #009688;
+	vertical-align: middle;
+	cursor: pointer;
+	padding: 0;
+	background-color: white;
+	visibility: visible;
+}
+
+#formulae_submit_btn{
+	margin: 10px;
+}
+
+#graph_shell, #graph_3Dshell{
+	display: none;
+}
+
+#graph_3Dshell{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+	.editor_div{
+		padding: 20px;
+	}
+}

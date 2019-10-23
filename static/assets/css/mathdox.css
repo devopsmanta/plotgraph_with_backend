@@ -1,0 +1,13 @@
+.mathdoxformula{
+    border: 1px solid #99F;
+    vertical-align: middle;
+    cursor: text;
+    padding: 0;
+    visibility: visible;
+}
+
+.fx_png{
+    vertical-align: middle;
+    padding: 0;
+    background: none;    
+}

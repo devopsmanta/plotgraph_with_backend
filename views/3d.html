@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Plotgraphs | 3D Plots</title>
+    <base href="https://www.plotgraphs.com/">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+    <link href="{{ url_for('static', filename='assets/css/mathdox.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet" type="text/css">
+    <script data-ad-client="ca-pub-4559838995070559" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+<script>
+    var plot3d, plot3D = 'yes';
+</script>
+
+<body>
+    <header>
+        <div class="navbar-fixed">
+            <nav class="teal accent-4">
+                <div class="nav-wrapper">
+                    <a href="/" class="brand-logo">Plotgraphs</a>
+                    <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                    <ul id="nav-mobile" class="right hide-on-med-and-down">
+                        <li><a href="/">2D Plots</a></li>
+                        <li><a href="function-derivatives">Function Derivatives</a></li>
+                        <li><a href="3d-plot">3D Plots</a></li>
+                        <li><a href="faq">FAQs</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="/">2D Plots</a></li>
+            <li><a href="function-derivatives">Function Derivatives</a></li>
+            <li><a href="3d-plot">3D Plots</a></li>
+            <li><a href="faq">FAQs</a></li>
+        </ul>
+    </header>
+    <div class="container">
+        <h4>
+            <strong>
+                3D Plotting :
+            </strong>
+        </h4>
+        <div class="editor_div row">
+            <div id="loading">
+                <div id="loading">
+                    <div class="preloader-wrapper small active">
+                        <div class="spinner-layer spinner-green-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="gap-patch">
+                                <div class="circle"></div>
+                            </div>
+                            <div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <form id='math_box_editor' action="https://78.47.36.48/test.php" method="post">
+                <textarea class='mathdoxformula' id="math" name="math"></textarea>
+            </form>
+            <textarea id="output" name="output"></textarea>
+            <a id="formulae_submit_btn" class="waves-effect waves-light btn teal accent-4 col s4 m3"
+                href='javascript:generate3Dgraph()'>Submit</a>
+        </div>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- plotgraphs -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-4559838995070559"
+     data-ad-slot="9239350567"
+     data-ad-format="auto"
+     data-full-width-responsive="true"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+        <div class="generated_graph" id="graph_3Dshell">
+        </div>
+        <div class="content">
+            <div class="row">
+                <p class="offset-s1">
+                    {% if id == 'de' %}
+                    {{ translate(text="Plotting a graph is no easy task, and many students will surely be able to relate to such. Doing your assignments with regards to graphing can surely be very challenging. Even professionals are incessantly studying how to plot graphs with the greatest accuracy to make sure the output will be able to serve its intended use. Fortunately, there are online tools you can use, such as a graphing calculator. If you are looking for an effortless way to create a graph, Plotgraphs.com is an option you will surely not regret. We have an innovative approach in graphing, making us an indispensable tool for a wide array of users.", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="Plotting a graph is no easy task, and many students will surely be able to relate to such. Doing your assignments with regards to graphing can surely be very challenging. Even professionals are incessantly studying how to plot graphs with the greatest accuracy to make sure the output will be able to serve its intended use. Fortunately, there are online tools you can use, such as a graphing calculator. If you are looking for an effortless way to create a graph, Plotgraphs.com is an option you will surely not regret. We have an innovative approach in graphing, making us an indispensable tool for a wide array of users.", src='en', dest=['es']) }}
+                    {% else %}
+                    Plotting a graph is no easy task, and many students will surely be able to relate to such. Doing your assignments with regards to graphing can surely be very challenging. Even professionals are incessantly studying how to plot graphs with the greatest accuracy to make sure the output will be able to serve its intended use. Fortunately, there are online tools you can use, such as a graphing calculator. If you are looking for an effortless way to create a graph, Plotgraphs.com is an option you will surely not regret. We have an innovative approach in graphing, making us an indispensable tool for a wide array of users.
+                    {%endif%}
+                    
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="What You Can Do With Plotgraphs.com", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="What You Can Do With Plotgraphs.com", src='en', dest=['es']) }}
+                    {% else %}
+                    What You Can Do With Plotgraphs.com
+                    {%endif%}
+                
+               
+                </h4>
+                <p class="col">
+                    {% if id == 'de' %}
+                    {{ translate(text="As long as you need a graph, we can help you to make it. One of the things you can do is the calculation of function derivatives through the intuitive graphical formula editor. You can also create 2D and 3D plots, and once the graph is done, it can be made available in different formats, such as JPG and PDF, making it easier to have it submitted easily. You no longer need to be in a struggle with your pen, paper, and calculator as everything can be easily accomplished with our revolutionary graphing calculator.", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="As long as you need a graph, we can help you to make it. One of the things you can do is the calculation of function derivatives through the intuitive graphical formula editor. You can also create 2D and 3D plots, and once the graph is done, it can be made available in different formats, such as JPG and PDF, making it easier to have it submitted easily. You no longer need to be in a struggle with your pen, paper, and calculator as everything can be easily accomplished with our revolutionary graphing calculator.", src='en', dest=['es']) }}
+                    {% else %}
+                    As long as you need a graph, we can help you to make it. One of the things you can do is the calculation of function derivatives through the intuitive graphical formula editor. You can also create 2D and 3D plots, and once the graph is done, it can be made available in different formats, such as JPG and PDF, making it easier to have it submitted easily. You no longer need to be in a struggle with your pen, paper, and calculator as everything can be easily accomplished with our revolutionary graphing calculator.
+                    {%endif%}
+                
+                </p>
+            </div>
+            <div>
+                <h4 class="row">
+                    {% if id == 'de' %}
+                    {{ translate(text="What Makes Us Different", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="What Makes Us Different", src='en', dest=['es']) }}
+                    {% else %}
+                    What Makes Us Different
+                    {%endif%}
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="While there are many options, you can see online when it comes to the best graphing calculator, we take pride in having an intuitive interface. Some are too complicated, which makes the entire task more difficult rather than extending a helping hand. At Plotgraphs.com, you will surely be able to create a graph in the most effortless way possible. Mathematical functions can be inputted without the need to be on a struggle with syntax. There are also multiple functions per plot, which will make it possible for you to do more. Plotgraphs.com is a free graphing calculator and plotting tool, which is another reason why you should choose us above others. You do not have to pay anything to enjoy premium service.Even if it is for free, we make sure that the graph will be accurate, and your experience is given priority. We also make it easy for you to export the graph in different printable formats. Aside from graphing, you can also calculate basic derivative functions. While this feature is still in its infancy and being tested, it is already very promising. As you can do more with our graphing calculator, you have more reasons to be thankful for discovering our website. In sum, if you have complex mathematical problems and if you need to plot a graph, do not forget to check our website. We will help to make math an easier subject for everyone through the numerous functions of our graphing calculator.", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="While there are many options, you can see online when it comes to the best graphing calculator, we take pride in having an intuitive interface. Some are too complicated, which makes the entire task more difficult rather than extending a helping hand. At Plotgraphs.com, you will surely be able to create a graph in the most effortless way possible. Mathematical functions can be inputted without the need to be on a struggle with syntax. There are also multiple functions per plot, which will make it possible for you to do more. Plotgraphs.com is a free graphing calculator and plotting tool, which is another reason why you should choose us above others. You do not have to pay anything to enjoy premium service.Even if it is for free, we make sure that the graph will be accurate, and your experience is given priority. We also make it easy for you to export the graph in different printable formats. Aside from graphing, you can also calculate basic derivative functions. While this feature is still in its infancy and being tested, it is already very promising. As you can do more with our graphing calculator, you have more reasons to be thankful for discovering our website. In sum, if you have complex mathematical problems and if you need to plot a graph, do not forget to check our website. We will help to make math an easier subject for everyone through the numerous functions of our graphing calculator.", src='en', dest=['es']) }}
+                    {% else %}
+                    While there are many options, you can see online when it comes to the best graphing calculator, we take pride in having an intuitive interface. Some are too complicated, which makes the entire task more difficult rather than extending a helping hand. At Plotgraphs.com, you will surely be able to create a graph in the most effortless way possible. Mathematical functions can be inputted without the need to be on a struggle with syntax. There are also multiple functions per plot, which will make it possible for you to do more. Plotgraphs.com is a free graphing calculator and plotting tool, which is another reason why you should choose us above others. You do not have to pay anything to enjoy premium service.Even if it is for free, we make sure that the graph will be accurate, and your experience is given priority. We also make it easy for you to export the graph in different printable formats. Aside from graphing, you can also calculate basic derivative functions. While this feature is still in its infancy and being tested, it is already very promising. As you can do more with our graphing calculator, you have more reasons to be thankful for discovering our website. In sum, if you have complex mathematical problems and if you need to plot a graph, do not forget to check our website. We will help to make math an easier subject for everyone through the numerous functions of our graphing calculator.
+                    {%endif%}
+                
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="How to make an 2D plot - Instructions:", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="How to make an 2D plot - Instructions:", src='en', dest=['es']) }}
+                    {% else %}
+                    How to make an 2D plot - Instructions:
+                    {%endif%}
+                
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="The Basics: It has never been that easy to plot graphs online. Just press edit and a prompt for entering the expression you want to plot will appear. Enter your function and press plot. Here you go! The plot of your graph shows up immediately. To plot an additional graph press + and then repeat the steps from  above. The new graph will be added to your existing plot. If you want to remove a graph from your plot just press - to delete it. Each new graph will be drawn in a new color. The colors are chosen automatically at the moment. In future we will allow you also to set a specific style for each of your particular plots.", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="The Basics: It has never been that easy to plot graphs online. Just press edit and a prompt for entering the expression you want to plot will appear. Enter your function and press plot. Here you go! The plot of your graph shows up immediately. To plot an additional graph press + and then repeat the steps from  above. The new graph will be added to your existing plot. If you want to remove a graph from your plot just press - to delete it. Each new graph will be drawn in a new color. The colors are chosen automatically at the moment. In future we will allow you also to set a specific style for each of your particular plots.", src='en', dest=['es']) }}
+                    {% else %}
+                    The Basics: It has never been that easy to plot graphs online. Just press edit and a prompt for entering the expression you want to plot will appear. Enter your function and press plot. Here you go! The plot of your graph shows up immediately. To plot an additional graph press + and then repeat the steps from  above. The new graph will be added to your existing plot. If you want to remove a graph from your plot just press - to delete it. Each new graph will be drawn in a new color. The colors are chosen automatically at the moment. In future we will allow you also to set a specific style for each of your particular plots.
+                    {%endif%}
+                    
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="Plot parametric functions:", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="Plot parametric functions:", src='en', dest=['es']) }}
+                    {% else %}
+                    Plot parametric functions:
+                    {%endif%}
+            
+                </h4>
+                <p>
+                    <ul class="bullet">
+                        <li class="bullet">
+                            {% if id == 'de' %}
+                            {{ translate(text="In the promt you can also choose to plot a parameric function x(s)=s,y(s)=s2 by clicking 'Parametric function' right at the top of the prompt. Important: The parameter has to be called 's'.", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="In the promt you can also choose to plot a parameric function x(s)=s,y(s)=s2 by clicking 'Parametric function' right at the top of the prompt. Important: The parameter has to be called 's'.", src='en', dest=['es']) }}
+                            {% else %}
+                            In the promt you can also choose to plot a parameric function x(s)=s,y(s)=s2 by clicking 'Parametric function' right at the top of the prompt. Important: The parameter has to be called 's'.
+                            {%endif%}
+                    
+                            
+                        </li>
+                        <li class="bullet">
+                            {% if id == 'de' %}
+                            {{ translate(text="Fine tuning: You have various possibilities to improve your result. In Axis properties you can set the X-range and the Y-range for your plot. Furthermore you can choose a logarithmic scale here and activate or deactivate grid lines. In General properties you can set the height and width of your plot in pixels. Furthermore you can set a custom title for your plot.", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="Fine tuning: You have various possibilities to improve your result. In Axis properties you can set the X-range and the Y-range for your plot. Furthermore you can choose a logarithmic scale here and activate or deactivate grid lines. In General properties you can set the height and width of your plot in pixels. Furthermore you can set a custom title for your plot.", src='en', dest=['es']) }}
+                            {% else %}
+                            Fine tuning: You have various possibilities to improve your result. In Axis properties you can set the X-range and the Y-range for your plot. Furthermore you can choose a logarithmic scale here and activate or deactivate grid lines. In General properties you can set the height and width of your plot in pixels. Furthermore you can set a custom title for your plot.        {%endif%}
+                    
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="How to define general graph properties", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="How to define general graph properties", src='en', dest=['es']) }}
+                    {% else %}
+                    How to define general graph properties
+                    {%endif%}
+            
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="You can define the type of your graph (e.g. curve, points, bars etc.). Just click on 'Graph Properties'and the available options will show up to you.", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="You can define the type of your graph (e.g. curve, points, bars etc.). Just click on 'Graph Properties'and the available options will show up to you.", src='en', dest=['es']) }}
+                    {% else %}
+                    You can define the type of your graph (e.g. curve, points, bars etc.). Just click on 'Graph Properties'and the available options will show up to you.
+                    {%endif%}
+            
+
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="Handsome export feature for your Plots:", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="Handsome export feature for your Plots:", src='en', dest=['es']) }}
+                    {% else %}
+                    Handsome export feature for your Plots:
+                    {%endif%}
+            
+                </h4>
+                <p>
+                    <ul>
+                        <li>
+                                {% if id == 'de' %}
+                                {{ translate(text="You can export your plots using the export section at the top of the page. At the moment the formats PDF, SVG, PNG and JPG are available.", src='en', dest=['de']) }}
+                                {% elif id == 'es' %}
+                                {{ translate(text="You can export your plots using the export section at the top of the page. At the moment the formats PDF, SVG, PNG and JPG are available.", src='en', dest=['es']) }}
+                                {% else %}
+                                You can export your plots using the export section at the top of the page. At the moment the formats PDF, SVG, PNG and JPG are available.
+                                {%endif%}
+                        
+                            
+                        
+                        </li>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text=" The export feature is available for both 2d and 3d graphs", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text=" The export feature is available for both 2d and 3d graphs", src='en', dest=['es']) }}
+                            {% else %}
+                            The export feature is available for both 2d and 3d graphs
+                            {%endif%}
+                           
+                        </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="How to create 3-Dimensional Plots:", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="How to create 3-Dimensional Plots:", src='en', dest=['es']) }}
+                    {% else %}
+                    How to create 3-Dimensional Plots:
+                    {%endif%}
+                    
+                    
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="Yes, you can plot 3D functions here in a very comfortable and easy way. To get started choose '3D Plot' in the main menu. A demo plot will appear at once. You now have two possibilities to enter the function you want to plot:", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="Yes, you can plot 3D functions here in a very comfortable and easy way. To get started choose '3D Plot' in the main menu. A demo plot will appear at once. You now have two possibilities to enter the function you want to plot:", src='en', dest=['es']) }}
+                    {% else %}
+                    Yes, you can plot 3D functions here in a very comfortable and easy way. To get started choose '3D Plot' in the main menu. A demo plot will appear at once. You now have two possibilities to enter the function you want to plot:
+                    {%endif%}
+                    
+                    
+                    
+                    <ul>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text="3D Graphs of implicit function definitions: If you want to plot an implicit function of the variables x, y and z you may enter it like follows: z=x+y or 3=x2+y2+z2 or z=1. The position of the equal sign does not matter.", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="3D Graphs of implicit function definitions: If you want to plot an implicit function of the variables x, y and z you may enter it like follows: z=x+y or 3=x2+y2+z2 or z=1. The position of the equal sign does not matter.", src='en', dest=['es']) }}
+                            {% else %}
+                            3D Graphs of implicit function definitions: If you want to plot an implicit function of the variables x, y and z you may enter it like follows: z=x+y or 3=x2+y2+z2 or z=1. The position of the equal sign does not matter.
+                            {%endif%}
+                        
+                            
+                        </li>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text="3D Plots of Explicit function: You can enter the function you want to plot also explicit as f(x,y)=x2+y2. Important: In that case the expression you have to enter in the formula editor is only x2+y2", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="3D Plots of Explicit function: You can enter the function you want to plot also explicit as f(x,y)=x2+y2. Important: In that case the expression you have to enter in the formula editor is only x2+y2", src='en', dest=['es']) }}
+                            {% else %}
+                            3D Plots of Explicit function: You can enter the function you want to plot also explicit as f(x,y)=x2+y2. Important: In that case the expression you have to enter in the formula editor is only x2+y2
+                            {%endif%}
+                        
+                            
+                        </li>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text="Note:There will be the same input for explicit and implicit functions. Implicit functions are detected automatically by the equal sign", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="Note:There will be the same input for explicit and implicit functions. Implicit functions are detected automatically by the equal sign", src='en', dest=['es']) }}
+                            {% else %}
+                            Note:There will be the same input for explicit and implicit functions. Implicit functions are detected automatically by the equal sign
+                            {%endif%}
+                
+                            
+                        </li>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text="Axis range: It is possible to set the axis range of your 3D plot independently for the x-, y- and z-axis.", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="Axis range: It is possible to set the axis range of your 3D plot independently for the x-, y- and z-axis.", src='en', dest=['es']) }}
+                            {% else %}
+                            Axis range: It is possible to set the axis range of your 3D plot independently for the x-, y- and z-axis.
+                            {%endif%}
+                
+                        </li>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text="Rotate the plot: You can change the angles under which your plot is seen using the buttons provided next to the input for the axis range.", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="Rotate the plot: You can change the angles under which your plot is seen using the buttons provided next to the input for the axis range.", src='en', dest=['es']) }}
+                            {% else %}
+                            Rotate the plot: You can change the angles under which your plot is seen using the buttons provided next to the input for the axis range.
+                            {%endif%}
+                
+                        
+                        </li>
+                        <li>
+                            {% if id == 'de' %}
+                            {{ translate(text="Export:To export your 3D plot you can proceed as described above.", src='en', dest=['de']) }}
+                            {% elif id == 'es' %}
+                            {{ translate(text="Export:To export your 3D plot you can proceed as described above.", src='en', dest=['es']) }}
+                            {% else %}
+                            Export:To export your 3D plot you can proceed as described above.
+                            {%endif%}
+                         </li>
+                    </ul>
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="My plot is empty and does not contain any graphs - what did I do wrong?", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="My plot is empty and does not contain any graphs - what did I do wrong?", src='en', dest=['es']) }}
+                    {% else %}
+                    My plot is empty and does not contain any graphs - what did I do wrong?
+                    {%endif%}
+        
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="Don't panik and check the syntax of your input. Most probably you made some inconsitent input like z=+. If predefined functions are multiplied an explicit dot is needed in between like cos(x)⋅sin(x) and not cos(x)sin(x).", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="Don't panik and check the syntax of your input. Most probably you made some inconsitent input like z=+. If predefined functions are multiplied an explicit dot is needed in between like cos(x)⋅sin(x) and not cos(x)sin(x).", src='en', dest=['es']) }}
+                    {% else %}
+                    Don't panik and check the syntax of your input. Most probably you made some inconsitent input like z=+. If predefined functions are multiplied an explicit dot is needed in between like cos(x)⋅sin(x) and not cos(x)sin(x).
+                    {%endif%}
+
+ 
+                </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="Function Derivatives", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="Function Derivatives", src='en', dest=['es']) }}
+                    {% else %}
+                    Function Derivatives
+                    {%endif%}
+    
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="You can use this page to calculate derivatives of basic functions. The feature is still experimental but is steadily improved. To derive a function just enter it using our formula editor. By clicking the f'(x) - Button next to the edit button the function will be derived and the derivative will also be plotted in the same coordinate frame as the original input. Please let us know in case you encounter any problems with this brandnew feature.", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="You can use this page to calculate derivatives of basic functions. The feature is still experimental but is steadily improved. To derive a function just enter it using our formula editor. By clicking the f'(x) - Button next to the edit button the function will be derived and the derivative will also be plotted in the same coordinate frame as the original input. Please let us know in case you encounter any problems with this brandnew feature.", src='en', dest=['es']) }}
+                    {% else %}
+                    You can use this page to calculate derivatives of basic functions. The feature is still experimental but is steadily improved. To derive a function just enter it using our formula editor. By clicking the f'(x) - Button next to the edit button the function will be derived and the derivative will also be plotted in the same coordinate frame as the original input. Please let us know in case you encounter any problems with this brandnew feature.
+                    {%endif%}
+    
+                   </p>
+            </div>
+            <div class="row">
+                <h4>
+                    {% if id == 'de' %}
+                    {{ translate(text="The terms of service", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="The terms of service", src='en', dest=['es']) }}
+                    {% else %}
+                    The terms of service 
+                    {%endif%}
+                    
+                </h4>
+                <p>
+                    {% if id == 'de' %}
+                    {{ translate(text="This service is available for free in the hope that it will be useful. It can be used by everybody to plot his graphs online. The plots can be exported on downloaded free of charge. Plots created by this service can be redistributed. However, there is no warrenty of any kind for the service provided by this website. Furthermore there is no warrenty for the correctness of the plots which are produced. If you have any further questions or suggestions feel free to contact webmaster@plotgraphs.com !", src='en', dest=['de']) }}
+                    {% elif id == 'es' %}
+                    {{ translate(text="This service is available for free in the hope that it will be useful. It can be used by everybody to plot his graphs online. The plots can be exported on downloaded free of charge. Plots created by this service can be redistributed. However, there is no warrenty of any kind for the service provided by this website. Furthermore there is no warrenty for the correctness of the plots which are produced. If you have any further questions or suggestions feel free to contact webmaster@plotgraphs.com !", src='en', dest=['es']) }}
+                    {% else %}
+                    
+                    This service is available for free in the hope that it will be useful. It can be used by everybody to plot his graphs online. The plots can be exported on downloaded free of charge. Plots created by this service can be redistributed. However, there is no warrenty of any kind for the service provided by this website. Furthermore there is no warrenty for the correctness of the plots which are produced. If you have any further questions or suggestions feel free to contact webmaster@plotgraphs.com !
+                    {%endif%}
+                    
+                </p>
+            </div>
+        </div>
+    </div>
+    <link href="{{ url_for('static', filename='assets/css/main.css') }}" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script type='text/javascript'
+        src="{{ url_for('static', filename='assets/js/formulaeditor/org/mathdox/formulaeditor/main.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.min.js"></script>
+    <script src="{{ url_for('static', filename='assets/js/index.js') }}"></script>
+</body>
+
+</html>

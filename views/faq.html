@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plotgraphs | FAQs</title>
+    <base href="https://www.plotgraphs.com/">
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css"
+    />
+    <link rel="stylesheet" href="./assets/css/mathdox.css" />
+    <link rel="stylesheet" href="./assets/css/main.css" media="all" />
+    <script>
+      var plot3d = "no";
+    </script>
+   <script data-ad-client="ca-pub-4559838995070559" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  </head>
+
+  <body>
+    <header>
+      <div class="navbar-fixed">
+        <nav class="teal accent-4">
+          <div class="nav-wrapper">
+            <a href="/" class="brand-logo">Plotgraphs</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger"
+              ><i class="material-icons">menu</i></a
+            >
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+              <li><a href="/">2D Plots</a></li>
+              <li><a href="function-derivatives">Function Derivatives</a></li>
+              <li><a href="3d-plot">3D Plots</a></li>
+              <li><a href="faq">FAQs</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+      <ul class="sidenav" id="mobile-demo">
+        <li><a href="/">2D Plots</a></li>
+        <li><a href="function-derivatives">Function Derivatives</a></li>
+        <li><a href="3d-plot">3D Plots</a></li>
+        <li><a href="faq">FAQs</a></li>
+      </ul>
+    </header>
+
+    <div class="container">
+      <a name="q0"></a>
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="Which functions can I plot here?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="Which functions can I plot here?", src='en', dest=['es']) }}
+        {% else %}Which functions can I plot here? {%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="You can use this tool to plot the graphs of functions depending on one variable.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="You can use this tool to plot the graphs of functions depending on one variable.", src='en', dest=['es']) }}
+      {% else %}You can use this tool to plot the graphs of functions depending
+      on one variable.{%endif%}
+      <b>
+        {% if id == 'de' %}
+        {{ translate(text="The function variable has to be x!", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="The function variable has to be x!", src='en', dest=['es']) }}
+        {% else %}The function variable has to be x!{%endif%} </b
+      ><br /><br />
+      {% if id == 'de' %}
+      {{ translate(text="A polynomic function you can enter like this: ", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="A polynomic function you can enter like this: ", src='en', dest=['es']) }}
+      {% else %} A polynomic function you can enter like this: {%endif%}
+
+      <b>2.5*x^2+3*x-5</b> <br />
+      {% if id == 'de' %}
+      {{ translate(text="A gaussian distribution with standard deviation 2 looks like this:", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="A gaussian distribution with standard deviation 2 looks like this:", src='en', dest=['es']) }}
+      {% else %}A gaussian distribution with standard deviation 2 looks like
+      this:{%endif%}
+
+      <b>1/(2*sqrt(2*pi))*exp(-1/2*((x-5)/2)^2)</b><br /><br />
+      {% if id == 'de' %}
+      {{ translate(text="The following functions are already pre-defined:", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="The following functions are already pre-defined:", src='en', dest=['es']) }}
+      {% else %}The following functions are already pre-defined:{%endif%}
+
+      <br /><br />
+      <table>
+        <tbody>
+          <tr>
+            <td><code>sin</code></td>
+            <td>sine function</td>
+          </tr>
+          <tr>
+            <td><code>cos</code></td>
+            <td>cosine function</td>
+          </tr>
+          <tr>
+            <td><code>tan</code></td>
+            <td>tangens function</td>
+          </tr>
+          <tr>
+            <td><code>asin</code></td>
+            <td>arcus sine function</td>
+          </tr>
+          <tr>
+            <td><code>acos</code></td>
+            <td>arcus cosine function</td>
+          </tr>
+          <tr>
+            <td><code>atan</code></td>
+            <td>arcus tangens function</td>
+          </tr>
+          <tr>
+            <td><code>sinh</code></td>
+            <td>hyperbolic sine function</td>
+          </tr>
+          <tr>
+            <td><code>cosh</code></td>
+            <td>hyperbolic cosine</td>
+          </tr>
+          <tr>
+            <td><code>tanh</code></td>
+            <td>hyperbolic tangens function</td>
+          </tr>
+          <tr>
+            <td><code>asinh</code></td>
+            <td>hyperbolic arcus sine function</td>
+          </tr>
+          <tr>
+            <td><code>acosh</code></td>
+            <td>hyperbolic arcus tangens function</td>
+          </tr>
+          <tr>
+            <td><code>atanh</code></td>
+            <td>hyperbolic arcur tangens function</td>
+          </tr>
+          <tr>
+            <td><code>log2</code></td>
+            <td>logarithm to the base 2</td>
+          </tr>
+          <tr>
+            <td><code>log10</code></td>
+            <td>logarithm to the base 10</td>
+          </tr>
+          <tr>
+            <td><code>log</code></td>
+            <td>logarithm to the base 10</td>
+          </tr>
+          <tr>
+            <td><code>ln</code></td>
+            <td>logarithm to base e (2.71828...)</td>
+          </tr>
+          <tr>
+            <td><code>exp</code></td>
+            <td>e raised to the power of x</td>
+          </tr>
+          <tr>
+            <td><code>sqrt</code></td>
+            <td>square root of a value</td>
+          </tr>
+          <tr>
+            <td><code>sign</code></td>
+            <td>sign function -1 if x&lt;0; 1 if x&gt;0</td>
+          </tr>
+          <tr>
+            <td><code>rint</code></td>
+            <td>round to nearest integer</td>
+          </tr>
+          <tr>
+            <td><code>abs</code></td>
+            <td>absolute value</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <br />
+      {% if id == 'de' %}
+      {{ translate(text="The input can be done using our WYSWYG formula editor. Therefore you do not have to care about correct syntax.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="The input can be done using our WYSWYG formula editor. Therefore you do not have to care about correct syntax.", src='en', dest=['es']) }}
+      {% else %}The input can be done using our WYSWYG formula editor. Therefore
+      you do not have to care about correct syntax.{%endif%}
+
+      <center><a href="#top">[Top]</a></center>
+      <a name="q1"></a>
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="At the moment the following constants are pre-defined:", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="At the moment the following constants are pre-defined:", src='en', dest=['es']) }}
+        {% else %}At the moment the following constants are
+        pre-defined:{%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="At the moment the following constants are pre-defined:", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="At the moment the following constants are pre-defined:", src='en', dest=['es']) }}
+      {% else %}At the moment the following constants are pre-defined:{%endif%}
+
+      <br /><br />
+      <table>
+        <tbody>
+          <tr>
+            <td><code>pi</code></td>
+            <td>3.1415...</td>
+          </tr>
+          <tr>
+            <td><code>e</code></td>
+            <td>2.7182...</td>
+          </tr>
+        </tbody>
+      </table>
+      <br />
+      <br />
+      <center><a href="#top">[Top]</a></center>
+      <a name="q2"></a>
+      <h3>
+        {% if id == 'de' %}
+
+        {{ translate(text="Can I add more than one graph to my plot?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="Can I add more than one graph to my plot?", src='en', dest=['es']) }}
+        {% else %}Can I add more than one graph to my plot?{%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="For the moment it is not possible to add more than one graph to a plot. However, this feature will be implemented soon.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="For the moment it is not possible to add more than one graph to a plot. However, this feature will be implemented soon.", src='en', dest=['es']) }}
+      {% else %}For the moment it is not possible to add more than one graph to
+      a plot. However, this feature will be implemented soon.{%endif%}
+
+      <br />
+      <br />
+      <center><a href="#top">[Top]</a></center>
+      <a name="q4"></a>
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="Can I add more than one graph to my plot?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="Can I add more than one graph to my plot?", src='en', dest=['es']) }}
+        {% else %}Can I add more than one graph to my plot?{%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="If you want to store your plot it is recommended to make a screenshot of the page. It will be possible to export your plots soon. The feature has not yet been implemented.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="If you want to store your plot it is recommended to make a screenshot of the page. It will be possible to export your plots soon. The feature has not yet been implemented.", src='en', dest=['es']) }}
+      {% else %} If you want to store your plot it is recommended to make a
+      screenshot of the page. It will be possible to export your plots soon. The
+      feature has not yet been implemented.{%endif%}
+
+      <br />
+      <br />
+      <a name="q5"></a>
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="How can I define the x-range I want to plot?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="How can I define the x-range I want to plot?", src='en', dest=['es']) }}
+        {% else %}How can I define the x-range I want to plot? {%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="Just go to the section 'Axis properties' at the bottom of the pageto define the x-range for your graph.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="Just go to the section 'Axis properties' at the bottom of the pageto define the x-range for your graph.", src='en', dest=['es']) }}
+      {% else %} Just go to the section <b>"Axis properties"</b> at the bottom
+      of the page to define the x-range for your graph. {%endif%}
+
+      <br />
+      <br />
+      <a name="q6"></a>
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="  Why can I not download my graphs?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="  Why can I not download my graphs?", src='en', dest=['es']) }}
+        {% else %} Why can I not download my graphs? {%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="The export feature works only properly with modern browsers. If your download does not work or the plot is exported incompletely we recommend you to take a screenhost instead. You can create a screenshot easily by pressing the 'Print' key at your keyboard.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="The export feature works only properly with modern browsers. If your download does not work or the plot is exported incompletely we recommend you to take a screenhost instead. You can create a screenshot easily by pressing the 'Print' key at your keyboard. ", src='en', dest=['es']) }}
+      {% else %} The export feature works only properly with modern browsers. If
+      your download does not work or the plot is exported incompletely we
+      recommend you to take a screenhost instead. You can create a screenshot
+      easily by pressing the "Print" key at your keyboard. {%endif%}
+
+      <br />
+      <br />
+      <a name="q10"></a>
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="What formats can you export the plots?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="What formats can you export the plots? ", src='en', dest=['es']) }}
+        {% else %} What formats can you export the plots? {%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="The standard format which is used to export the plots to is the PDF format. In case you want other formats like ", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="The standard format which is used to export the plots to is the PDF format. In case you want other formats like ", src='en', dest=['es']) }}
+      {% else %}The standard format which is used to export the plots to is the
+      PDF format. In case you want other formats like {%endif%}
+
+      <a href="http://www.epub2pdf.io">Epub</a>
+      {% if id == 'de' %}
+      {{ translate(text="(see link for comparision) you could use a decent converter.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="(see link for comparision) you could use a decent converter.", src='en', dest=['es']) }}
+      {% else %}(see link for comparision) you could use a decent converter.
+      {%endif%}
+
+      <br /><br />
+      {% if id == 'de' %}
+      {{ translate(text="Further useful tools:", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="Further useful tools:", src='en', dest=['es']) }}
+      {% else %}Further useful tools:{%endif%}
+
+      <br />
+      <a href="https://pdf2word.io/">PDF to Word</a> |
+      <a href="https://doc2pdf.io/">Doc to PDF</a> | In case you need to convert
+      the PDFs created by this site to Epub Ebooks you can also use the
+      following <a href="https://pdf2epub.io/">PDF to Epub Converter</a>.
+      <br />
+      <br />
+      <h3>
+        {% if id == 'de' %}
+        {{ translate(text="I want to merge different PDFs?", src='en', dest=['de']) }}
+        {% elif id == 'es' %}
+        {{ translate(text="I want to merge different PDFs?", src='en', dest=['es']) }}
+        {% else %} I want to merge different PDFs? {%endif%}
+      </h3>
+      {% if id == 'de' %}
+      {{ translate(text="We do not offer such a service ourselves. However you can use the following smart online tool to merge your output PDFs.", src='en', dest=['de']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="We do not offer such a service ourselves. However you can use the following smart online tool to merge your output PDFs.", src='en', dest=['es']) }}
+      {% else %} We do not offer such a service ourselves. However you can use
+      the following smart online tool to merge your output PDFs. {%endif%} {% if
+      id == 'de' %}
+      {{ translate(text="Simply use ", src='en', dest=['de'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }}<a href="https://joinpdf.online/"
+        >{{ translate(text=" combine", src='en', dest=['de']) }} PDF
+      </a>
+      {{ translate(text="order combine different PDF files you downloaded here.", src='de', dest=['es']) }}
+      {% elif id == 'es' %}
+      {{ translate(text="Simply use ", src='en', dest=['es'])
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      }}<a href="https://joinpdf.online/"
+        >{{ translate(text=" combine", src='en', dest=['es']) }} PDF
+      </a>
+      {{ translate(text="order combine different PDF files you downloaded here.", src='en', dest=['es']) }}
+      {% else %} Simply use
+      <a href="https://joinpdf.online/"> combine PDF</a> in order combine
+      different PDF files you downloaded here. {%endif%}
+
+      <center><a href="#top">[Top]</a></center>
+      <hr />
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./assets/js/index.js"></script>
+  </body>
+</html>
