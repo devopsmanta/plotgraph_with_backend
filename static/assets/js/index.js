@@ -11,14 +11,14 @@ $(window).on('load', function () {
         const wrapper = document.createElement('div')
         wrapper.setAttribute('class', 'formula_wrapper')
         const colorNode = document.createElement('div')
-        colorNode.setAttribute('style', 'background: ' + SuperfishelStone10[datasets.length % 10])
-        colorNode.setAttribute('class', 'formula_color')
+        colorNode.className = "formula_color"
+        colorNode.style = 'background: ' + SuperfishelStone10[datasets.length % SuperfishelStone10.length]
         const mathMLNode = document.createElement('span')
         mathMLNode.innerHTML = '(' + mathML + ')\''
         wrapper.appendChild(colorNode)
         wrapper.appendChild(mathMLNode)
-        document.getElementById("formula_list").appendChild(wrapper)
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathMLNode]);
+        document.getElementById("formula_list").appendChild(wrapper)
         sample_datapoints = []
         $.ajax({
             url: "http://localhost:3000/postDerive",
@@ -51,14 +51,14 @@ $(window).on('load', function () {
         const wrapper = document.createElement('div')
         wrapper.setAttribute('class', 'formula_wrapper')
         const colorNode = document.createElement('div')
-        colorNode.setAttribute('style', 'background: ' + SuperfishelStone10[datasets.length % 10])
-        colorNode.setAttribute('class', 'formula_color')
+        colorNode.className = "formula_color"
+        colorNode.style = 'background: ' + SuperfishelStone10[datasets.length % SuperfishelStone10.length]
         const mathMLNode = document.createElement('span')
         mathMLNode.innerHTML = mathML
         wrapper.appendChild(colorNode)
         wrapper.appendChild(mathMLNode)
-        document.getElementById("formula_list").appendChild(wrapper)
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, mathMLNode]);
+        document.getElementById("formula_list").appendChild(wrapper)
         sample_datapoints = []
         $.ajax({
             url: "http://localhost:3000/postXML",
@@ -67,7 +67,6 @@ $(window).on('load', function () {
             type: "POST",
             'data': JSON.stringify(newtext+"xlow"+xlow+"xhigh"+xhigh),
             success: function (data) {
-                console.log('before', datasets)
                 datasets.push({
                     label: 'f(x)',
                     fill: false,
@@ -75,7 +74,6 @@ $(window).on('load', function () {
                     data: data,
                     pointRadius: 0,
                 })
-                console.log(datasets)
                 runchartjs(datasets)
                 $('#graph_shell').slideDown();
                 window.scrollTo({
@@ -100,9 +98,10 @@ $(window).on('load', function () {
         var doc = new jsPDF('landscape');
         doc.setFontSize(20);
         doc.text(15, 15, "Cool Chart");
-        doc.addImage(canvasImg, 'JPEG', 10, 10, 280, 150);
+        doc.addImage(canvasImg, 'PNG', 10, 10, 280, 150);
         doc.save('canvas.pdf');
     }
+
     document.getElementById('download_2Dgraph').addEventListener("click", downloadPDF);
     runchartjs = (data) => {
         new Chart(document.getElementById("newGraph"), {

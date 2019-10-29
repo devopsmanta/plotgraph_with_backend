@@ -17,7 +17,6 @@ import datetime
 import uuid
 import subprocess
 from flask_googletrans import translator
-from flask_cors import CORS
 from random import randint
 
 
@@ -27,7 +26,6 @@ STATIC_DIR = os.path.abspath('./static')
 TEMPLATE_DIR = os.path.abspath('./views')
 
 app = Flask(__name__, template_folder=TEMPLATE_DIR, static_folder=STATIC_DIR)
-CORS(app)
 ts = translator(app)
 @app.route('/postXML', methods=['POST','GET'])
 def postXML():
